@@ -47,7 +47,7 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.h2`
-  font-size: 26px;
+  font-size: 20px;
   font-weight: normal;
   font-height: normal;
 
@@ -61,4 +61,10 @@ export const Image = styled.img`
   height: auto;
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  @media (max-width: 1000px) {
+    ${Item}:last-of-type h2 {
+      margin-bottom: 50px;
+    }
+  }
+`;
