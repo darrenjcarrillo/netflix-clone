@@ -82,7 +82,7 @@ export const Body = styled.div`
   }
   &.open {
     max-height: 1200px;
-    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+    transition: max-height 0.50s cubic-bezier(0.5, 0, 0.1, 1);
   }
   span {
     display: block;
