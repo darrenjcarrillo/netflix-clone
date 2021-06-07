@@ -18,7 +18,7 @@ export default function Signin() {
     // check form input elements are valid
     // email & password
 
-    const isInvalid = password == '' || emailAddress == '';
+    const isInvalid = password === '' || emailAddress === '';
     const handleSignin = (event) => {
         event.preventDefault();
         
@@ -36,8 +36,6 @@ export default function Signin() {
                 setError(error.message);
             })
     }
-
-
 
     return (
         <>
