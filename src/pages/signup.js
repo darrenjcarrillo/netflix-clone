@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase';
 import { FooterContainer } from '../containers/footer';
 import { HeaderContainer } from '../containers/header';
-import { Form } from '../components';
+import { Footer, Form } from '../components';
 import * as ROUTES  from '../constants/routes';
 
 export default function Signup() {
@@ -46,11 +46,22 @@ export default function Signup() {
                             placeholder="Password"
                             value={password}
                             autoComplete="off"
-                            onChange={({ target }) => setFirstName(target.value)}
+                            onChange={({ target }) => setPassword(target.value)}
                         />
+
+                        <Form.Submit disabled={isInvalid} type="submit">
+                            Sign Up
+                        </Form.Submit>
+                        <Form.Text>
+                            Already a user? <Form.Link to="/signin">Sign in now.</Form.Link>
+                        </Form.Text>
+                        <Form.TextSmall>
+                            This page is protected by Google reCAPTCHA to ensure you're not a bot. learn more.
+                        </Form.TextSmall>
                     </Form.Base>
                 </Form>
             </HeaderContainer>
+            <FooterContainer/>
         </>
     )
 }
