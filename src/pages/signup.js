@@ -7,5 +7,50 @@ import { Form } from '../components';
 import * as ROUTES  from '../constants/routes';
 
 export default function Signup() {
-    return <p>Hello from the sign up!</p>
+    const history = useHistory();
+    const { firebase } = useContext(FirebaseContext);
+
+    const [firstName, setFirstName] = useState('')
+    const [emailAddress, setEmailAddress] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const isInvalid = firstName === '' || password === '' || emailAddress === '';
+
+    const handleSignup = (event) => {
+        event.preventDefault();
+
+        // do firebase stuff
+    }
+
+
+    return (
+        <>
+            <HeaderContainer>
+                <Form>
+                    <Form.Title>Sign Up</Form.Title>
+                    {error && <Form.Error>{error}</Form.Error>}
+
+                    <Form.Base onSubmit={handleSignup} method="POST">
+                        <Form.Input 
+                            placeholder="First name"
+                            value={firstName}
+                            onChange={({ target }) => setFirstName(target.value)}
+                        />
+                        <Form.Input 
+                            placeholder="Email address"
+                            value={emailAddress}
+                            onChange={({ target }) => setEmailAddress(target.value)}
+                        />
+                        <Form.Input 
+                            placeholder="Password"
+                            value={password}
+                            autoComplete="off"
+                            onChange={({ target }) => setFirstName(target.value)}
+                        />
+                    </Form.Base>
+                </Form>
+            </HeaderContainer>
+        </>
+    )
 }
